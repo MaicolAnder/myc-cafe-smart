@@ -1,0 +1,56 @@
+<div class="card">
+  <h2 class="text-2xl font-bold mb-6">Empaque y Distribución</h2>
+
+  <form [formGroup]="empaqueForm" (ngSubmit)="onSubmit()" class="space-y-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+        <label class="block text-sm font-medium mb-2"
+          >Material de Empaque</label
+        >
+        <select formControlName="material" class="form-input">
+          <option value="yute">Saco de Yute</option>
+          <option value="papel">Bolsa de Papel</option>
+          <option value="valvula">Bolsa con Válvula</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium mb-2">Capacidad (kg)</label>
+        <input type="number" formControlName="capacidad" class="form-input" />
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium mb-2">Número de Lote</label>
+        <input type="text" formControlName="numeroLote" class="form-input" />
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium mb-2">Fecha de Empaque</label>
+        <input type="date" formControlName="fechaEmpaque" class="form-input" />
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium mb-2">Destino</label>
+        <input type="text" formControlName="destino" class="form-input" />
+      </div>
+
+      <div>
+        <label class="block text-sm font-medium mb-2">Método de Envío</label>
+        <select formControlName="metodoEnvio" class="form-input">
+          <option value="terrestre">Terrestre</option>
+          <option value="maritimo">Marítimo</option>
+          <option value="aereo">Aéreo</option>
+        </select>
+      </div>
+    </div>
+
+    <div *ngIf="empaqueForm.valid" class="mt-6">
+      <h3 class="text-lg font-semibold mb-4">Código QR del Lote</h3>
+      <div class="bg-white p-4 inline-block rounded-lg">
+        <!-- <qr-code [value]="generateQRData()" [size]="200"></qr-code> -->
+      </div>
+    </div>
+
+    <button type="submit" class="btn-primary">Registrar Empaque</button>
+  </form>
+</div>

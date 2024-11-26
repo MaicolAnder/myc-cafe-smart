@@ -1,0 +1,12 @@
+.form-input.ng-invalid.ng-touched {
+  border-color: #ef4444;
+}
+
+.form-input.ng-valid.ng-touched {
+  border-color: #22c55e;
+}
+
+.border-t {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+}

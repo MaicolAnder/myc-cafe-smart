@@ -1,0 +1,63 @@
+<div class="card">
+  <h2 class="text-2xl font-bold mb-6">Registro de Cultivo</h2>
+  
+  <form [formGroup]="cultivoForm" (ngSubmit)="onSubmit()" class="space-y-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div>
+        <label class="block text-sm font-medium mb-2">Ubicación</label>
+        <input type="text" formControlName="ubicacion" class="form-input">
+      </div>
+      
+      <div>
+        <label class="block text-sm font-medium mb-2">Altitud (msnm)</label>
+        <input type="number" formControlName="altitud" class="form-input">
+      </div>
+      
+      <div>
+        <label class="block text-sm font-medium mb-2">Variedad de Café</label>
+        <select formControlName="variedad" class="form-input">
+          <option value="">Seleccione una variedad</option>
+          <option value="arabica">Arábica</option>
+          <option value="robusta">Robusta</option>
+          <option value="bourbon">Bourbon</option>
+          <option value="typica">Typica</option>
+        </select>
+      </div>
+      
+      <div>
+        <label class="block text-sm font-medium mb-2">Fecha de Siembra</label>
+        <input type="date" formControlName="fechaSiembra" class="form-input">
+      </div>
+      
+      <div>
+        <label class="block text-sm font-medium mb-2">Fecha Estimada de Cosecha</label>
+        <input type="date" formControlName="fechaCosecha" class="form-input">
+      </div>
+      
+      <div>
+        <label class="block text-sm font-medium mb-2">Condiciones Climáticas</label>
+        <textarea formControlName="condicionesClimaticas" class="form-input" rows="3"></textarea>
+      </div>
+    </div>
+    
+    <div>
+      <label class="block text-sm font-medium mb-2">Prácticas Agrícolas</label>
+      <div class="space-y-2">
+        <div>
+          <input type="checkbox" formControlName="practicaOrganica" id="organica" class="mr-2">
+          <label for="organica">Cultivo Orgánico</label>
+        </div>
+        <div>
+          <input type="checkbox" formControlName="practicaSostenible" id="sostenible" class="mr-2">
+          <label for="sostenible">Prácticas Sostenibles</label>
+        </div>
+        <div>
+          <input type="checkbox" formControlName="certificacion" id="certificacion" class="mr-2">
+          <label for="certificacion">Certificación de Calidad</label>
+        </div>
+      </div>
+    </div>
+    
+    <button type="submit" class="btn-primary">Guardar Registro</button>
+  </form>
+</div>

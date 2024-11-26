@@ -1,0 +1,92 @@
+<div class="card">
+  <h2 class="text-2xl font-bold mb-6">Registro de Procesos</h2>
+  
+  <form [formGroup]="procesosForm" (ngSubmit)="onSubmit()" class="space-y-6">
+    <div class="space-y-4">
+      <div>
+        <label class="block text-sm font-medium mb-2">Tipo de Beneficiado</label>
+        <div class="space-x-4">
+          <input type="radio" formControlName="tipoBeneficiado" value="seco" id="seco">
+          <label for="seco">Seco</label>
+          <input type="radio" formControlName="tipoBeneficiado" value="humedo" id="humedo">
+          <label for="humedo">Húmedo</label>
+        </div>
+      </div>
+      
+      <div class="border-t pt-4">
+        <h3 class="text-lg font-semibold mb-4">Etapas del Proceso</h3>
+        
+        <div class="space-y-4">
+          <div formGroupName="fermentacion">
+            <h4 class="font-medium">Fermentación</h4>
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm mb-1">Tiempo (horas)</label>
+                <input type="number" formControlName="tiempo" class="form-input">
+              </div>
+              <div>
+                <label class="block text-sm mb-1">Temperatura (°C)</label>
+                <input type="number" formControlName="temperatura" class="form-input">
+              </div>
+            </div>
+          </div>
+          
+          <div formGroupName="secado">
+            <h4 class="font-medium">Secado</h4>
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm mb-1">Método</label>
+                <select formControlName="metodo" class="form-input">
+                  <option value="sol">Secado al Sol</option>
+                  <option value="mecanico">Secado Mecánico</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-sm mb-1">Tiempo (horas)</label>
+                <input type="number" formControlName="tiempo" class="form-input">
+              </div>
+            </div>
+          </div>
+          
+          <div formGroupName="tostado">
+            <h4 class="font-medium">Tostado</h4>
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm mb-1">Nivel</label>
+                <select formControlName="nivel" class="form-input">
+                  <option value="ligero">Ligero</option>
+                  <option value="medio">Medio</option>
+                  <option value="oscuro">Oscuro</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-sm mb-1">Temperatura (°C)</label>
+                <input type="number" formControlName="temperatura" class="form-input">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-t pt-4">
+        <h3 class="text-lg font-semibold mb-4">Control de Calidad</h3>
+        <div class="space-y-2">
+          <div>
+            <input type="checkbox" formControlName="controlHumedad" id="humedad" class="mr-2">
+            <label for="humedad">Control de Humedad</label>
+          </div>
+          <div>
+            <input type="checkbox" formControlName="controlDefectos" id="defectos" class="mr-2">
+            <label for="defectos">Control de Defectos</label>
+          </div>
+          <div>
+            <input type="checkbox" formControlName="catacion" id="catacion" class="mr-2">
+            <label for="catacion">Prueba de Catación</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <button type="submit" class="btn-primary">Guardar Proceso</button>
+  </form>
+</div>

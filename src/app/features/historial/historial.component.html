@@ -1,0 +1,49 @@
+<div class="card">
+  <h2 class="text-2xl font-bold mb-6">Historial de Producción</h2>
+  
+  <div class="space-y-6">
+    <div *ngFor="let lote of historialLotes" class="border-b pb-6">
+      <div class="flex justify-between items-start mb-4">
+        <h3 class="text-xl font-semibold">Lote: {{lote.numeroLote}}</h3>
+        <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">
+          {{lote.estado}}
+        </span>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div>
+          <h4 class="font-medium mb-2">Cultivo</h4>
+          <ul class="space-y-1 text-sm">
+            <li><span class="font-medium">Ubicación:</span> {{lote.cultivo.ubicacion}}</li>
+            <li><span class="font-medium">Variedad:</span> {{lote.cultivo.variedad}}</li>
+            <li><span class="font-medium">Fecha Siembra:</span> {{lote.cultivo.fechaSiembra}}</li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-medium mb-2">Proceso</h4>
+          <ul class="space-y-1 text-sm">
+            <li><span class="font-medium">Beneficiado:</span> {{lote.proceso.tipoBeneficiado}}</li>
+            <li><span class="font-medium">Nivel Tostado:</span> {{lote.proceso.nivelTostado}}</li>
+            <li><span class="font-medium">Calidad:</span> {{lote.proceso.calidad}}</li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="font-medium mb-2">Empaque</h4>
+          <ul class="space-y-1 text-sm">
+            <li><span class="font-medium">Material:</span> {{lote.empaque.material}}</li>
+            <li><span class="font-medium">Destino:</span> {{lote.empaque.destino}}</li>
+            <li><span class="font-medium">Fecha Envío:</span> {{lote.empaque.fechaEnvio}}</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="mt-4">
+        <button class="text-blue-600 hover:text-blue-800 text-sm" (click)="verDetalles(lote.numeroLote)">
+          Ver detalles completos →
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
