@@ -16,7 +16,7 @@ export class ChatIaComponent implements OnInit {
   isOpen = false;
   userMessage: string = '';
   chatHistory: { role: string, content: string }[] = [];
-  chat_message: string = 'Soy el asistente IA de Mi Carnaval. ¿En qué puedo ayudarte?';
+  chat_message: string = 'Soy el asistente IA de Smart Coffee. ¿En qué puedo ayudarte?';
   private visitorId: string;
 
   constructor(
