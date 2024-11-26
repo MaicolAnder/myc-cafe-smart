@@ -15,3 +15,12 @@
     @apply bg-white rounded-lg shadow-md p-6;
   }
 }
+
+.logo {
+  width: 80px;             /* Ancho del logo */
+  height: 80px;            /* Altura del logo */
+  background-image: url('./assets/image/logo.png'); /* URL de la imagen */
+  background-size: cover;    /* Ajusta la imagen al contenedor */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  background-position: center;  /* Centra la imagen */
+}

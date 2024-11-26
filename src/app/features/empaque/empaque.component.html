@@ -2,6 +2,42 @@
   <h2 class="text-2xl font-bold mb-6">Empaque y Distribución</h2>
 
   <form [formGroup]="empaqueForm" (ngSubmit)="onSubmit()" class="space-y-6">
+
+    <div class="container mx-auto p-4 w-full max-w-screen-xl">
+      <h1 class="text-3xl font-semibold mb-6 text-center text-gray-800">Seleccione cultivo para el proceso</h1>
+      <div class="overflow-x-auto bg-gray-50 rounded-lg shadow-md">
+        <table class="w-screen table-auto bg-white border-separate border-spacing-0 border border-gray-200 rounded-lg" style="width: 100%;">
+          <thead class="bg-blue-600 text-gray-700">
+            <tr>
+              <th class="py-5 px-4 text-center font-medium">Finca</th>
+              <th class="py-5 px-4 text-center font-medium">Ubicación</th>
+              <th class="py-5 px-4 text-center font-medium">Certificación</th>
+              <th class="py-5 px-4 text-center font-medium">Fecha de Cosecha</th>
+              <th class="py-5 px-4 text-center font-medium">Fecha de Siembra</th>
+              <th class="py-5 px-4 text-center font-medium">Variedad</th>
+              <th class="py-5 px-4 text-center font-medium">Altitud</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Iterate over listCultivos (this loop will be processed on your server-side) -->
+            @for (item of listCultivos; track $index) {
+              <tr class="hover:bg-gray-100 border-t border-gray-200">
+                <td class="py-3 px-4 text-left">
+                  <input type="radio" formControlName="idCultivo" id="{{item.idCultivo}}" value="{{item.idCultivo}}" required="true" class="accent-blue-600">
+                </td>
+                <td class="py-3 px-4 text-left w-screen">{{item.ubicacion}}</td>
+                <td class="py-3 px-4 text-left w-screen">{{item.certificacion}}</td>
+                <td class="py-3 px-4 text-left w-screen">{{item.fechaCosecha | date}}</td>
+                <td class="py-3 px-4 text-left w-screen">{{item.fechaSiembra | date}}</td>
+                <td class="py-3 px-4 text-left w-screen">{{item.variedad}}</td>
+                <td class="py-3 px-4 text-left w-screen">{{item.altitud}}</td>
+              </tr> 
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <div>
         <label class="block text-sm font-medium mb-2"
